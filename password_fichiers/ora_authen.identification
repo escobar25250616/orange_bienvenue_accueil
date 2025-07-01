@@ -1,0 +1,63 @@
+var gtw_params = {
+  "page_data": {"notify_tag_error": "0.2", "page_id": "ora_authen.identification", "mode": "js", "visits": 29, "oan_version": "f1a78abd7c2b1b69938d4f4bec9f70c274a7cdf6", "sKW": ""},
+  "user_data": {"optout": "0", "optin": "0"},
+  "targeting": [
+      {"name": "Next Performance RTA", "type": "NxtPerf", "ss": "0", "url": "https://p.nxtck.com/an?a=1&val=&loc=https%3a//all.orfr.adgtw.orangeads.fr/nxt%3f%7Baud_ids%7D&rnd=1193548261", "async": "1", "vars": {}},
+      {"name": "AdblockPlus Criteo", "type": "AdBlockPlusCriteo", "ss": "0", "url": "https://cdn.adgtw.orangeads.fr/build/lib/px.js", "async": "0", "vars": {}},
+      {"name": "HeaderBidding CDN ANX", "type": "appnexusheaderbidding", "ss": "0", "url": "https://cdn.adgtw.orangeads.fr/build/lib/prebid.js", "async": "0", "vars": {}},
+      {"name": "Criteo_hb", "type": "criteoheaderbidding", "ss": "0", "url": "https://static.criteo.net/js/ld/publishertag.js", "async": "0", "vars": {}},
+      {"name": "[A]async", "type": "", "ss": "1", "url": "", "async": "0", "vars": {}},
+      {"name": "bluekai", "type": "bluekai", "ss": "0", "url": "https://tags.bluekai.com/site/58290?ret=js&limit=1", "async": "0", "vars": {}},
+      {"name": "amazon v2", "type": "amazonv2", "ss": "0", "url": "https://c.amazon-adsystem.com/aax2/apstag.js", "async": "1", "vars": {}},
+      {"name": "index_hb", "type": "indexexchangeheaderbidding", "ss": "0", "url": "http://www.google.com", "async": "1", "vars": {}},
+      {"name": "Smart_HB", "type": "smartheaderbidding", "ss": "0", "url": "http://www.google.com", "async": "0", "vars": {}},
+      {"name": "Liveramp", "type": "Liveramp", "ss": "0", "url": "https://www.orange.fr", "async": "0", "vars": {}},
+      {"name": "Confiant", "type": "confiant", "ss": "0", "url": "https://confiant-integrations.global.ssl.fastly.net/Ngwh8Nfclp8QnaUOpjNkhYFSsl8/gpt_and_prebid/config.js", "async": "1", "vars": {}}
+  ],
+  "tracking": [
+      {"name": "", "ss": "0", "url": "https://rc.rlcdn.com/397756.gif"}
+  ],
+  "adservers": [
+      {"name": "DFP6", "type": "1", "lib_url": "https://securepubads.g.doubleclick.net/tag/js/gpt.js", "spc": "0", "async_lib": "1", "async_tag": "1", "assign": "=", "separator": ";", "tags": [
+		{"name": "ora_2_728x90_identification", "url": "", "server_tag": "/3513/woo_ban_2_728x90_ident", "w": "728", "h": "90", "alt_w": "", "alt_h": "", "iframe": "1", "supp_vars": "idanx=1066379;adslot=326373;r=0;criteohb_id=761088;indexhb_id=285425;smarthb_id=348149,1221953,89898;"}]}
+  ]
+};
+
+function oan_displayAd() {};
+
+function oan_getParams() {
+  var scripts = document.getElementsByTagName('script');
+  var vars = {};
+  var index = scripts.length - 1;
+  var myScript = scripts[index];
+  myScript.src.replace(/[?&]+([^=&]+)=?([^&]*)?/gi, function( m, key, value ) {
+    vars[key] = value !== undefined ? value : '';
+  });
+  return vars;
+}
+
+function oan_hasParam(params, param) {
+  if (!params || !param) return null;
+  return params[param] ? params[param] : null;
+}
+
+var oan_params = oan_getParams();
+var oan_insert = oan_hasParam(oan_params, 'insert');
+
+if (oan_insert !== 'false') {
+  var useDocumentWrite = false;
+  var urlMediation = "/build/oan_common-async-3.2.min.js";
+  if(urlMediation === ""){
+    useDocumentWrite = true;
+  } else {
+    useDocumentWrite = false;
+  }
+
+  if(!useDocumentWrite) {
+    var js = document.createElement('script');
+    js.src = "https://cdn.adgtw.orangeads.fr/build/oan_common-async-3.2.min.js?f1a78abd7c2b1b69938d4f4bec9f70c274a7cdf6";
+    document.getElementsByTagName("head")[0].appendChild(js);
+  } else {
+    document.write(unescape("%3cscript%20type%3d%22text%2fjavascript%22%20src%3d%22https%3a%2f%2fcdn.adgtw.rec.orangeads.fr%2fbuild%2foan_common-async-3.2.min.js%3ff1a78abd7c2b1b69938d4f4bec9f70c274a7cdf6%22%3e%3c%2fscript%3e"));
+  }
+}

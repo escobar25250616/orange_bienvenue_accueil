@@ -1,0 +1,39 @@
+
+    var o_magicConfigTgif = {
+      
+        "tgifRecUrl": "//z.preprod.woopic.com/t",
+      
+        "tgifUrl": "//z.woopic.com/t",
+      
+      "tgifActivate": {
+        
+          "mobile": true,
+        
+          "desktop": true
+        
+      },
+      "conf": {
+      "www.orange.fr/portail": {
+          appName: "PORTAIL",ratio: 0.35
+        },"wwwm.orange.fr/portail": {
+          appName: "PORTAIL",ratio: 5.57
+        },"actu.orange.fr": {
+          appName: "ACTU",ratio: 0.84
+        },"sports.orange.fr": {
+          appName: "SPORTS",ratio: 2.44
+        },"boutique.orange.fr": {
+          appName: "BOUTIQUE",ratio: 2.35
+        },"espaceclientv3.orange.fr": {
+          appName: "ESPACECLIENTv3",ratio: 14.32
+        },"espace-client.orange.fr": {
+          appName: "ESPACECLIENT",ratio: 14.32
+        },"assistance.orange.fr": {
+          appName: "ASSISTANCE",ratio: 4.77
+        },"chaines-tv.orange.fr": {
+          appName: "TV",ratio: 15.52
+        },"sosh.fr": {
+          appName: "SOSH",ratio: 15.52
+        }
+      }
+    }
+  
